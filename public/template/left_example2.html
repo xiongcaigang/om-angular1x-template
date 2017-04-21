@@ -1,0 +1,8 @@
+<ul class="left-navi ng-scope" ng-Controller="leftExample2Controller" style="position:absolute;top:70px;">
+    <li class="navi-title nolink">分类</li>
+            <span>
+                <a ng-repeat="nav in vars.navs" ng-click=changeNav(nav)>
+                    <li class="nav-1" ng-class="{on:nav.categoryid==curNav}">{{nav.name}}</li>
+                </a>
+            </span>
+</ul>

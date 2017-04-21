@@ -1,0 +1,35 @@
+<div class="right-main ng-scope" style="margin-left:235px;min-height:800px;" ng-controller="rightExample2Controller">
+
+        <form class="form-inline form-search">
+            <div class="control-group">
+                <input type="text" placeholder="请输入关键词" ng-model="vars.searchvalue">
+                <button type="submit" class="btn btn-default" ng-click="search()" class="btn">搜索</button>
+                <button type="submit" ng-show="vars.searchflag" class="btn btn-default" ng-click="clearSearch()" class="btn">返回</button>                 
+            </div>
+        </form>     
+        <table class="table table-hover">
+            <tr>
+                <th>字段1</th>
+                <th>字段2</th>
+                <th>字段3</th>
+                <th>字段4</th>
+                <th>字段5</th>
+            </tr>
+            <tr ng-repeat = "item in tableData" ng-if="!vars.isLoading" style="text-align: center">
+                <td>{{item.field1}}</td>
+                <td>{{item.field2}}</td>
+                <td>{{item.field3}}</td>
+                <td>{{item.field4}}</td>
+                <td>{{item.field5}}</td>
+            </tr>
+            <tr ng-if="vars.isLoading">
+                <td colspan="100"><i class='loading'></i></td>
+            </tr>
+            <tr ng-if="!vars.isLoading && !tableData.length">
+                <td colspan="100" align="center">暂无数据</td>
+            </tr>
+        </table>
+        <div class="paginationdiv" ng-show="vars.hasPage">
+            <pagination total-items="vars.count" items-per-page="vars.pageSize" max-size="vars.maxShowPage" on-select-page="selectPage(page)" page="vars.page" boundary-links="true" previous-text="上一页" first-text="第一页" last-text="最后一页" next-text="下一页"></pagination>
+        </div>
+</div>
